@@ -1,13 +1,26 @@
 package com.queuedesk;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TicketTestRunner {
     public static void main(String[] args) {
-        Ticket t1 = new Ticket("Login page broken", "Can't log in on Chrome", "Alice", Priority.HIGH);
-        Ticket t2 = new Ticket("Add dark mode", "Bob");
+        List<Ticket> tickets = new ArrayList<>();
 
-        System.out.println(t1);
-        System.out.println(t2);
-        System.out.println("Age of t1 (hours): " + t1.ageInHours());
-        System.out.println("Total tickets created: " + Ticket.totalCreated());
+        BugTicket bug = new BugTicket("Login crashes", "NPE on login", "Alice", Priority.CRITICAL,
+                Severity.BLOCKER, "1. Open app 2. Click login 3. Crash");
+        bug.escalate();
+
+        FeatureRequestTicket feature = new FeatureRequestTicket("Add dark mode", "Users want dark UI",
+                "Bob", Priority.LOW, 42, "Improves retention");
+
+        AccessRequestTicket access = new AccessRequestTicket("Need admin access", "For deployment",
+                "Charlie", Priority.MEDIUM, "AWS Console", "Admin");
+
+        tickets.add(bug);
+        tickets.add(feature);
+        tickets.add(access);
+
+        TriageBoard.printTriageBoard(tickets);
     }
 }

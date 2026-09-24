@@ -3,7 +3,7 @@ package com.queuedesk;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
-public class Ticket {
+public abstract class Ticket {
 
     private static int nextId = 1;
 
@@ -77,6 +77,8 @@ public class Ticket {
     public long ageInHours() {
         return ChronoUnit.HOURS.between(createdAt, LocalDateTime.now());
     }
+
+    public abstract double estimateEffortHours();
 
     // Static method
     public static int totalCreated() {
