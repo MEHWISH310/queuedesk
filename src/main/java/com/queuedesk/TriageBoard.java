@@ -14,4 +14,14 @@ public class TriageBoard {
             }
         }
     }
+
+    public static <T extends Ticket> T oldest(List<T> tickets) {
+        T oldestTicket = null;
+        for (T ticket : tickets) {
+            if (oldestTicket == null || ticket.getCreatedAt().isBefore(oldestTicket.getCreatedAt())) {
+                oldestTicket = ticket;
+            }
+        }
+        return oldestTicket;
+    }
 }
