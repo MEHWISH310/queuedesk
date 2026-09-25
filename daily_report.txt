@@ -1,0 +1,17 @@
+=== End of Day Summary ===
+
+-- Counts by status --
+OPEN: 3
+IN_PROGRESS: 1
+RESOLVED: 1
+
+-- Counts by priority --
+LOW: 2
+HIGH: 1
+CRITICAL: 2
+
+-- Oldest open ticket --
+Ticket #1 [Login page broken] - HIGH - OPEN
+
+-- Overdue CRITICAL tickets (age > 24h) --
+None

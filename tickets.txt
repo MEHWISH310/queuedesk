@@ -1,0 +1,5 @@
+Login page broken|Cannot log in on Chrome|Alice|HIGH|OPEN
+Add dark mode|Users requested dark theme|Bob|LOW|IN_PROGRESS
+Server crash on deploy|NPE during startup|Charlie|CRITICAL|OPEN
+Update footer text|Copyright year is wrong|Dave|LOW|RESOLVED
+Database connection timeout|Intermittent timeouts in prod|Eve|CRITICAL|OPEN
