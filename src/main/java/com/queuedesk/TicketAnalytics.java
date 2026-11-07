@@ -1,7 +1,9 @@
 package com.queuedesk;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class TicketAnalytics {
@@ -36,6 +38,12 @@ public class TicketAnalytics {
             total += ticket.estimateEffortHours();
         }
         return total;
+    }
+
+    public static Optional<Ticket> oldestOpenTicket(List<Ticket> tickets) {
+        return tickets.stream()
+                .filter(t -> t.getStatus() == Status.OPEN)
+                .min(Comparator.comparing(Ticket::getCreatedAt));
     }
 
     public static String tagLine(List<Ticket> tickets) {
